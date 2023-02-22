@@ -5,17 +5,27 @@ options:
 targets:
   ${XCODE_PROJECT_APP_NAME}:
     settings:
-      base:
-        MARKETING_VERSION: 0.0.1
-        CURRENT_PROJECT_VERSION: 1
-    info:
-      path: ${XCODE_PROJECT_APP_NAME}/info.plist
-      properties:
-        UIMainStoryboardFile: Main
-        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
-        UILaunchStoryboardName: LaunchScree
-        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
-        CFBundleShortVersionString: $(MARKETING_VERSION)
+      configs:
+        Debug:
+          MARKETING_VERSION: 0.0.1
+          CURRENT_PROJECT_VERSION: 1
+          GENERATE_INFOPLIST_FILE: YES
+          INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
+          INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+          INFOPLIST_KEY_UILaunchStoryboardName: LaunchScreen
+          INFOPLIST_KEY_UIMainStoryboardFile: Main
+          INFOPLIST_KEY_UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+          INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+        Release:
+          MARKETING_VERSION: 0.0.1
+          CURRENT_PROJECT_VERSION: 1
+          GENERATE_INFOPLIST_FILE: YES
+          INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
+          INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+          INFOPLIST_KEY_UILaunchStoryboardName: LaunchScreen
+          INFOPLIST_KEY_UIMainStoryboardFile: Main
+          INFOPLIST_KEY_UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+          INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
     type: application
     platform: iOS
     deploymentTarget: "13.0"
