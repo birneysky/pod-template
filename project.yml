@@ -6,21 +6,19 @@ targets:
   ${XCODE_PROJECT_APP_NAME}:
     settings:
       base:
-        GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
         MARKETING_VERSION: 0.0.1
         CURRENT_PROJECT_VERSION: 1
     info:
-      path: ${XCODE_PROJECT_APP_NAME}/Info.plist
+      path: ${XCODE_PROJECT_APP_NAME}/info.plist
       properties:
         UIMainStoryboardFile: Main
-        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         UILaunchStoryboardName: LaunchScree
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleShortVersionString: $(MARKETING_VERSION)
     type: application
     platform: iOS
-    deploymentTarget: "10.0"
+    deploymentTarget: "13.0"
     sources: 
       - ${XCODE_PROJECT_APP_NAME}
     dependencies:
@@ -29,7 +27,7 @@ targets:
     settings:
       base:
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
+        INFOPLIST_FILE: ${XCODE_PROJECT_NAME}/Info.plist
     type: framework
     platform: iOS
     sources: 
