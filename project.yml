@@ -1,0 +1,43 @@
+name: ${XCODE_PROJECT_NAME} 
+options:
+  bundleIdPrefix: com.jojo
+  xcodeVersion: 14.0
+targets:
+  ${XCODE_PROJECT_APP_NAME}:
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
+        MARKETING_VERSION: 0.0.1
+        CURRENT_PROJECT_VERSION: 1
+    info:
+      path: ${XCODE_PROJECT_APP_NAME}/Info.plist
+      properties:
+        UIMainStoryboardFile: Main
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UILaunchStoryboardName: LaunchScree
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+    type: application
+    platform: iOS
+    deploymentTarget: "10.0"
+    sources: 
+      - ${XCODE_PROJECT_APP_NAME}
+    dependencies:
+      - target: ${XCODE_PROJECT_NAME} 
+  ${XCODE_PROJECT_NAME}:
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
+    type: framework
+    platform: iOS
+    sources: 
+      - ${XCODE_PROJECT_NAME}
+  ${XCODE_PROJECT_NAME_TEST}:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - ${XCODE_PROJECT_NAME_TEST}
+
+    
