@@ -5,6 +5,7 @@ mkdir ${XCODE_PROJECT_APP_NAME}
 mkdir ${XCODE_PROJECT_NAME}
 mkdir ${XCODE_PROJECT_NAME_TEST}
 cp -f ~/source/github/pod-template/project.yml ./
+cp -rf ~/source/github/pod-template/Templates/iOS/Objc/App/*.* ./${XCODE_PROJECT_APP_NAME}/
 xcodegen
 rm -rf ./project.yml
 #rm -rf ${XCODE_PROJECT_APP_NAME}
