@@ -4,7 +4,7 @@ import Foundation
 
 @main
 public struct xcodeprojgen {
-    public private(set) var text = "Hello, World!"
+    public let text = "Hello, World!"
 
     public static func main() {
         print(xcodeprojgen().text)
@@ -12,12 +12,12 @@ public struct xcodeprojgen {
         if let shell = enviroment["SHELL"] {
             print("SHELL is \(shell)")
         }
-
-        print(fullPath(of: "cp"))
+//
+        print(fullPath(of: "cp") ?? "")
         exec("say", arguments: ["ladies and gentlemen, may i have your attention please, i have a very import announcement to make"])
-        run("whereis",arguments: ["ls"])
-        print(fullPath(of: "cp"))
-        print(CommandLine.arguments)
+//        run("whereis",arguments: ["ls"])
+//        print(fullPath(of: "cp"))
+//        print(CommandLine.arguments)
     }
 }
 
@@ -65,7 +65,7 @@ func _exec(_ commandPath: String, arguments:[String]? = nil) ->(Int32, String?) 
 func fullPath(of command: String) -> String? {
     let pathes = ["/bin", "/usr/bin", "/usr/local/bin", "/usr/sbin", "/sbin"]
     for path in pathes {
-        let  (status, message) = _exec("/usr/bin/mdfind", arguments: ["-name", command, "-onlyin", path])
+        let  (status, message) = _exec("/usr/bin/find", arguments: [path, "-name", command])
         if status == 0, let cmdPath = message {
             return cmdPath.trimmingCharacters(in:.whitespacesAndNewlines);
         }
