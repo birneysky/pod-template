@@ -1,0 +1,51 @@
+name: ${XCODE_PROJECT_NAME} 
+options:
+  bundleIdPrefix: com.jojo
+  xcodeVersion: 14.0
+targets:
+  ${XCODE_PROJECT_APP_NAME}:
+    settings:
+      configs:
+        Debug:
+          MARKETING_VERSION: 0.0.1
+          CURRENT_PROJECT_VERSION: 1
+          GENERATE_INFOPLIST_FILE: YES
+          INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
+          INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+          INFOPLIST_KEY_UILaunchStoryboardName: LaunchScreen
+          INFOPLIST_KEY_UIMainStoryboardFile: Main
+          INFOPLIST_KEY_UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+          INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+        Release:
+          MARKETING_VERSION: 0.0.1
+          CURRENT_PROJECT_VERSION: 1
+          GENERATE_INFOPLIST_FILE: YES
+          INFOPLIST_FILE: ${XCODE_PROJECT_APP_NAME}/Info.plist
+          INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+          INFOPLIST_KEY_UILaunchStoryboardName: LaunchScreen
+          INFOPLIST_KEY_UIMainStoryboardFile: Main
+          INFOPLIST_KEY_UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+          INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: 
+      - ${XCODE_PROJECT_APP_NAME}
+    dependencies:
+      - target: ${XCODE_PROJECT_NAME} 
+  ${XCODE_PROJECT_NAME}:
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: ${XCODE_PROJECT_NAME}/Info.plist
+    type: framework
+    platform: iOS
+    sources: 
+      - ${XCODE_PROJECT_NAME}
+  ${XCODE_PROJECT_NAME_TEST}:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - ${XCODE_PROJECT_NAME_TEST}
+
+    
