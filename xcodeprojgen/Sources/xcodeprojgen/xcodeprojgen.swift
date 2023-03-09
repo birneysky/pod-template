@@ -13,6 +13,10 @@ public struct xcodeprojgen {
             print("SHELL is \(shell)")
         }
 //
+        let b = Bundle.allBundles;
+        let a = Bundle.main.path(forResource: "project", ofType: "yml")
+        let settingsURL = Bundle.module.url(forResource: "Templates", withExtension: nil)
+        print(settingsURL)
         print(fullPath(of: "cp") ?? "")
         exec("say", arguments: ["ladies and gentlemen, may i have your attention please, i have a very import announcement to make"])
 //        run("whereis",arguments: ["ls"])

@@ -19,9 +19,15 @@ let package = Package(
             name: "xcodeprojgen",
             dependencies: [],
             resources: [
-                .copy("Resources/project.yml")]),
+                .copy("Resources/")
+            ]
+        ),
         .testTarget(
             name: "xcodeprojgenTests",
-            dependencies: ["xcodeprojgen"]),
+            dependencies: ["xcodeprojgen"],
+            resources: [
+                .copy("Resources/")
+            ]
+        ),
     ]
 )

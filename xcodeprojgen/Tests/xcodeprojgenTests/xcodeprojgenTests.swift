@@ -32,4 +32,13 @@ final class xcodeprojgenTests: XCTestCase {
         XCTAssertThrowsError(try process.run())
         process.waitUntilExit()
     }
+    
+    func testResource() {
+        let a = Bundle(identifier: "xcodeprojgenTests")
+        let e = a?.path(forResource: "Empty", ofType: "md")
+        let d = a?.url(forResource: "Empty", withExtension: "md")
+        let b = Bundle.allBundles;
+        let settingsURL = Bundle.module.url(forResource: "Empty", withExtension: "md")
+        print(settingsURL)
+    }
 }
