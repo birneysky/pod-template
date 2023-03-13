@@ -12,10 +12,25 @@ public struct xcodeprojgen {
         if let shell = enviroment["SHELL"] {
             print("SHELL is \(shell)")
         }
+        
+        
+        var thisModuleName = "xcodeprojgen_xcodeprojgen"
+        var url = Bundle.main.bundleURL
+        url = url.appendingPathComponent("\(thisModuleName).bundle")
+                
+            guard let bundle = Bundle(url: url) else {
+                    fatalError("Foundation.Bundle.module could not load resource bundle: \(url.path)")
+                }
+    /// https://stackoverflow.com/questions/47177036/use-resources-in-unit-tests-with-swift-package-manager
+        let ppp = bundle.url(forResource: "project.yml", withExtension: nil, subdirectory: "Resources");
 //
         let b = Bundle.allBundles;
         let a = Bundle.main.path(forResource: "project", ofType: "yml")
+        #if XCODE_BUILD
         let settingsURL = Bundle.module.url(forResource: "Templates", withExtension: nil)
+        #else
+        let settingsURL = Bundle.module.url(forResource: "Templates", withExtension: nil)
+        #endif
         print(settingsURL)
         print(fullPath(of: "cp") ?? "")
         exec("say", arguments: ["ladies and gentlemen, may i have your attention please, i have a very import announcement to make"])
